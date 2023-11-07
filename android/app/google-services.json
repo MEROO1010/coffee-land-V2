@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "561925801883",
+    "project_id": "coffee-land-v2",
+    "storage_bucket": "coffee-land-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561925801883:android:a896ad6c17b9760986033e",
+        "android_client_info": {
+          "package_name": "com.example.coffee_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlF2Yw491jvzrTkHAekZq6GtFVmpjG01o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
