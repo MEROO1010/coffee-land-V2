@@ -1,6 +1,7 @@
 import 'package:coffee_app/auth/SignIn.dart';
 import 'package:coffee_app/auth/SignUp.dart';
 import 'package:coffee_app/firebase_options.dart';
+import 'package:coffee_app/pages/HomePage.dart';
 import 'package:coffee_app/pages/Onborading.dart';
 import 'package:flutter/material.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
@@ -18,6 +19,7 @@ void main() async {
       '/onborading': (context) => Onborading(),
       '/SignUp': (context) => SignUp(),
       '/SignIn': (context) => SignIn(),
+      '/HomePage': (context) => HomePage(),
     },
   ));
 }

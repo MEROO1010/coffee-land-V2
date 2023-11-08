@@ -10,8 +10,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Home Page'),
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(237, 229, 218, 1),
+      body: Wrap(
+        children: [
+          Container(
+            child: Text('Home page'),
+          ),
+        ],
+      ),
     );
   }
 }
