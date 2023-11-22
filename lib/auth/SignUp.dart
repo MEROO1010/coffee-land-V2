@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
       );
 
       print("User Registered: ${userCredential.user!.email}");
-      Navigator.pushNamed(context, '/HomePage');
+      Navigator.pushNamed(context, '/Homepage');
     } catch (e) {
       print("Error During Registration: $e");
     }
