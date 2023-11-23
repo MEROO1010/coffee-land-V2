@@ -15,10 +15,11 @@ class _HomePageState extends State<HomePage> {
       body: Wrap(
         children: [
           Scaffold(
-            backgroundColor: Color.fromRGBO(237, 229, 218, 1),
+            backgroundColor: Color.fromRGBO(160, 41, 240, 1),
             appBar: AppBar(
               title: Text('home Page'),
             ),
+            body: Container(child: Text('home page')),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:coffee_app/pages/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,24 +15,35 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
 
-  String _email = "";
-  String _password = "";
-
   void _handleSignUp() async {
     try {
+      String email = _emailController.text;
+      String password = _passController.text;
+
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
-        email: _email,
-        password: _password,
+        email: email,
+        password: password,
       );
 
       print("User Registered: ${userCredential.user!.email}");
-      Navigator.pushNamed(context, '/Homepage');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      ); // Navigate to the home page
     } catch (e) {
       print("Error During Registration: $e");
     }
   }
 
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
+  }
+
+  bool passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,9 +104,6 @@ class _SignUpState extends State<SignUp> {
                           }
                           return null;
                         },
-                        onSaved: (value) {
-                          _email = value!;
-                        },
                       ),
                     ),
                   ),
@@ -104,26 +113,37 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                       width: 340,
                       child: TextFormField(
+                        obscureText: passwordVisible,
                         controller: _passController,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(16),
-                          prefixIcon: Icon(Icons.visibility_off_outlined),
-                          hintText: 'Password',
+                          prefixIcon: IconButton(
+                              icon: Icon(passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    passwordVisible = !passwordVisible;
+                                  },
+                                );
+                              }),
+                          alignLabelWithHint: false,
                           filled: true,
+                          hintText: 'Password',
                           fillColor: Color.fromRGBO(255, 210, 166, 1),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(40),
                             borderSide: BorderSide(style: BorderStyle.none),
                           ),
                         ),
+                        keyboardType: TextInputType.visiblePassword,
+                        textInputAction: TextInputAction.done,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Please enter your password';
                           }
                           return null;
-                        },
-                        onSaved: (value) {
-                          _password = value!;
                         },
                       ),
                     ),
@@ -135,7 +155,6 @@ class _SignUpState extends State<SignUp> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
                             _handleSignUp();
                           }
                         },
