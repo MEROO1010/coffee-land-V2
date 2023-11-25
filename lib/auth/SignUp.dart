@@ -1,3 +1,4 @@
+import 'package:coffee_app/auth/SignIn.dart';
 import 'package:coffee_app/pages/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -197,7 +198,11 @@ class _SignUpState extends State<SignUp> {
                         padding: EdgeInsets.only(bottom: 2),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/SignIn');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignIn()),
+                            );
                           },
                           child: Text(
                             'Sign-In',
