@@ -20,7 +20,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [Row(children: [])],
+      children: [
+        Scaffold(
+          backgroundColor: Color.fromRGBO(255, 210, 166, 1),
+        ),
+        Scaffold(
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(padding: EdgeInsets.only(top: 110)),
+              Container(
+                  child: Image.asset('assets/images/navbar.png'),
+                  padding: EdgeInsets.only(left: 110)),
+              Container(
+                child: Text('Home'),
+              ),
+              Container(
+                child: Image.asset('assets/images/like.png'),
+              ),
+              Container(
+                child: Image.asset('assets/images/shopping-bag.png'),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
