@@ -40,6 +40,11 @@ dependencies:
   introduction_slider: ^2.0.1
   firebase_auth: ^4.12.1
   firebase_core: ^2.21.0
+  cloud_firestore: ^4.13.6
+  get_storage: ^2.1.1
+  firebase_crashlytics: ^3.4.8
+  flutter_slidable: ^3.0.1
+  provider: ^6.1.1
   
 
   
